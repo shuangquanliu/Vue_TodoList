@@ -1,16 +1,19 @@
 <template>
     <ul class="todo-main">
-      <TodoItem v-for="(todo,index) in todos" :key="todo.id" :index="index" :todo="todo" :deletTodo="deletTodo" :togleCheck="togleCheck"/>
+      <TodoItem v-for="(todo,index) in todos" :key="todo.id" :index="index" :todo="todo"   :deleteTodo="deleteTodo"/>
     </ul>
 </template>
 <script>
 import TodoItem from './TodoItem'
 export default {
   //通信接收
-  props:['todos','deletTodo','togleCheck'],
+  props:['todos','deleteTodo'],
   //注册组件
   components:{
     TodoItem
+  },
+  created () {
+    console.log(this)
   }
 }
 </script>

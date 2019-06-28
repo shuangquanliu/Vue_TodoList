@@ -1,18 +1,21 @@
 <template>
   <div class="todo-footer">
-    <label>
+    <slot name="left"></slot>
+    <slot name="center"></slot>
+    <slot name="right"></slot>
+ <!--    <label slot="left">
       <input type="checkbox" v-model="isChecked"/>
     </label>
-    <span>
+    <span solt="center">
       <span>已完成{{count}}</span> / 全部{{todos.length}}
     </span>
-    <button class="btn btn-danger" v-show="count>0">清除已完成任务</button>
+    <button solt="right" class="btn btn-danger" v-show="count>0">清除已完成任务</button> -->
   </div>
 </template>
 <script>
 export default {
 
-  //属性计算
+ /*  //属性计算
   computed:{
     isChecked:{
       get(){
@@ -30,7 +33,7 @@ export default {
   props:{
     todos:Array,
     checKAll:Function
-  }
+  } */
 }
 </script>
 <style scoped>

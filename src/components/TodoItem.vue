@@ -12,6 +12,8 @@
   </li>
 </template>
 <script>
+//引入pubsub 库
+import Pubsub from 'pubsub-js'
 export default {
   computed:{
     isComplet:{
@@ -19,7 +21,9 @@ export default {
         return this.todo.isShow
       },
       set(val){
-        this.togleCheck(this.todo)
+        // this.togleCheck(this.todo)
+        //通过事件总线方式触发并且传递数据
+        this.$bus.$emit('toggle',this.todo)
       }
     }
   },
@@ -27,7 +31,10 @@ export default {
     //删除
     detle(){
       if(confirm('你确定要删除此信息吗')){
-        this.deletTodo(this.todo.index)
+        this.deleteTodo(this.index)
+        /* //使用pubsub发布---也就是触发此消息
+        Pubsub.publish('deleteTodo',this.index)
+        console.log(this.index) */
       }
 
     },
@@ -54,8 +61,9 @@ export default {
   //通信接收并使用
   props:{
     todo:Object,
-    deletTodo:Function,
-    togleCheck:Function
+    index:Number,
+    deleteTodo:Function,
+    // togleCheck:Function
   }
 }
 </script>

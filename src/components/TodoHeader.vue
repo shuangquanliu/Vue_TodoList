@@ -5,6 +5,7 @@
 </template>
 <script>
 export default {
+
    methods:{
     addTodo(){
       const title = this.title.trim()
@@ -17,7 +18,8 @@ export default {
         title,
         isShow:false
       }
-      this.add(todo)
+      //自定义事件实现父子组件通信
+      this.$emit('add',todo)
       this.title =""
     }
   },
@@ -26,12 +28,12 @@ export default {
       title:''
     }
   },
-  props:{
+/*   props:{
     add:{
       type:Function,
       required:true
     }
-  }
+  } */
 }
 </script>
 <style scoped>
