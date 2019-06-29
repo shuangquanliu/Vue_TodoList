@@ -47,6 +47,7 @@ module.exports = {
     'no-sequences':'off',
     'no-unused-expressions':'off',
     'no-multi-spaces':'off',
-    'no-unused-vars':'off'
+    'no-unused-vars':'off',
+    'camelcase':'off'
   }
 }
