@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
-/* import VueResource from 'vue-resource'
-//声明使用插件
-Vue.use(VueResource) */
 
+
+//事件总线
+Vue.prototype.$bus = new Vue()
 new Vue({
   el:'#app',
-  components: {
+  components:{
     App
   },
-  template:'<App/>'
+  template:'<app/>'
 })
